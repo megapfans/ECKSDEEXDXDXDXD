@@ -1,15 +1,19 @@
 package com.example.student.ecksdeexdxdxdxd;
 
-/**
- * Created by Student on 9/25/2016.
- */
+import android.widget.TextView;
+
+import java.util.Random;
 public class Prediction {
     private static Prediction prediction;
     private String[] answers;
+    private Random myRandom = new Random();
+    private int randomNumber;
+
     private Prediction(){
         answers = new String[] {
                 "No",
-                "Stop"
+                "Stop",
+                "Think for one second"
         };
     }
 public static Prediction get(){
@@ -22,6 +26,9 @@ public static Prediction get(){
     return prediction;
 }
     public String getPrediction(){
-        return answers[1];
+        randomNumber = myRandom.nextInt(answers.length);
+
+        return answers[randomNumber];
+
     }
 }
